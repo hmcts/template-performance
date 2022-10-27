@@ -1,0 +1,44 @@
+plugins {
+  id 'org.owasp.dependencycheck' version '7.2.1'
+  id 'scala'
+  id 'io.gatling.gradle' version '3.8.4'
+}
+
+tasks.withType(JavaExec) {
+  /* Configure the size of the JVM if necessary
+  jvmArgs = ['-Xms1024m', '-Xmx2048m']
+  */
+  /* Use the following args to build a report when a test was terminated
+  args = [
+      "--reports-only", "<gatling-run-id>",
+      '--results-folder', file('build/reports/gatling').absolutePath,
+      ]
+  */
+}
+
+tasks.withType(Copy).all{
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+repositories {
+  mavenCentral()
+}
+
+gatling {
+  gatlingVersion '3.8.4'
+  scalaVersion '2.13.9'
+  simulations = {
+    include "simulations/<SimulationName>.scala"
+  }
+}
+
+sourceSets {
+  gatling {
+    scala {
+      srcDir 'src/gatling/simulations'
+    }
+    resources {
+      srcDir 'src/gatling/resources'
+    }
+  }
+}
