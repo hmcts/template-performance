@@ -1,6 +1,6 @@
 ### <Service Name> Gatling Performance Tests
 
-*** INSTRUCTIONS:
+*** INSTRUCTIONS (Remove this list once complete):
  1. Rename the Service_Simulation and DemoScenario files
  2. Create scenarios as required using the DemoScenario template
  3. Update the simulation with the scenarios required, volumes, workload model, etc
