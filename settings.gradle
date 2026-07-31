@@ -1,3 +1,7 @@
+pluginManagement {
+    includeBuild('common/common-performance/build-logic')
+}
+
 rootProject.name = 'template-performance' //TODO: update this with the project name
 
 include ':common-performance'
